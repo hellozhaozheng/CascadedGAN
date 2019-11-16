@@ -1,8 +1,8 @@
 from models.networks.sync_batchnorm import DataParallelWithCallback
-from models.pix2pix_model import Pix2PixModel
+from models.model import Model
 
 
-class Pix2PixTrainer():
+class Trainer():
     """
     Trainer creates the model and optimizers, and uses them to
     updates the weights of the network while reporting losses
