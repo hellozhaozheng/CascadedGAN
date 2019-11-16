@@ -1,15 +1,9 @@
-"""
-Copyright (C) 2019 NVIDIA Corporation.  All rights reserved.
-Licensed under the CC BY-NC-SA 4.0 license (https://creativecommons.org/licenses/by-nc-sa/4.0/legalcode).
-"""
-
 import sys
 from collections import OrderedDict
-from options.train_options import TrainOptions
+from cfgs.train import Options
 import data
-from util.iter_counter import IterationCounter
-from util.visualizer import Visualizer
-from trainers.pix2pix_trainer import Pix2PixTrainer
+from util.iter import IterationCounter
+from trainers.trainer import Trainer
 
 # parse options
 opt = TrainOptions().parse()
@@ -21,7 +15,7 @@ print(' '.join(sys.argv))
 dataloader = data.create_dataloader(opt)
 
 # create trainer for our model
-trainer = Pix2PixTrainer(opt)
+trainer = Trainer(opt)
 
 # create tool for counting iterations
 iter_counter = IterationCounter(opt, len(dataloader))
